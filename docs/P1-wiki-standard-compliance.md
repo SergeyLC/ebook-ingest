@@ -3,12 +3,14 @@
 # P1 – WIKI_CONTENT_STANDARD-Konformität für ebook-ingest
 
 > **Ziel:** Alle von `ebook-ingest` erzeugten Notizen (Source-Index, Source-Block,
-> Concept) erfüllen die Pflicht-Frontmatter-Anforderungen aus
-> `WIKI_CONTENT_STANDARD.md`, sodass `packages/wiki-indexer` sie fehlerfrei
-> indexiert und über MCP (`wiki_search`, `wiki_get_note`, `wiki_backlinks`)
-> für Copilot auffindbar macht. Aktuell würde der Indexer nahezu jede von
-> `ebook-ingest` erzeugte Notiz als Fehler protokollieren (fehlende
-> Pflichtfelder, ungültiger `type`-Wert).
+> Concept) erfüllen `@sergeylc/knowledge-vault-contract`
+> (`validateWikiStandardFrontmatter`), sodass `@sergeylc/knowledge-vault-indexer`
+> sie fehlerfrei indexiert und über MCP (`vault_search`, `vault_get_note`,
+> `vault_backlinks`) auffindbar macht.
+>
+> **Status (follow-up):** Validation is owned by
+> `@sergeylc/knowledge-vault-contract@0.2.0`. `FrontmatterValidator` is a thin
+> wrapper; do not reintroduce a local copy of the shared rules.
 
 ---
 

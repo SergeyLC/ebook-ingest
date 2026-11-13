@@ -1,15 +1,13 @@
 import path from 'node:path';
 import fs from 'node:fs';
 
-/**
- * WIKI_CONTENT_STANDARD.md compliant note types.
- */
-export type WikiNoteType =
-  | 'concept' | 'book' | 'author' | 'pattern'
-  | 'standard' | 'decision' | 'index';
+import type { WikiNoteType } from '@sergeylc/knowledge-vault-contract';
+
+export type { WikiNoteType };
 
 /**
- * Configuration for WIKI_CONTENT_STANDARD.md compliance.
+ * Configuration for wiki-standard frontmatter compliance
+ * (`@sergeylc/knowledge-vault-contract` / validateWikiStandardFrontmatter).
  */
 export interface WikiStandardConfig {
   /** Enable frontmatter compliance (default: true) */
@@ -52,7 +50,7 @@ export interface EbookIngestConfig {
   attachmentsDir: string;
   /** Ollama model to use for LLM analysis */
   model: string;
-  /** WIKI_CONTENT_STANDARD compliance settings */
+  /** Wiki-standard frontmatter compliance settings */
   wikiStandard: WikiStandardConfig;
 }
 

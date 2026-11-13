@@ -56,9 +56,10 @@ Maps of Content (MOCs).
 
 - **Vault-Migration** – `migrate`-Befehl für v2→v3 (Book→Source-Modell)
 - **Konzept-Normalisierung** – Bereinigt Konzeptnamen für Dateinamen und Wikilinks
-- **WIKI_CONTENT_STANDARD-Konformität** – Alle erzeugten Notizen
-  erfüllen die Pflicht-Frontmatter-Anforderungen für `wiki-indexer`
-  und MCP-Tools (`wiki_search`, `wiki_get_note`, `wiki_backlinks`)
+- **Wiki-standard frontmatter** – Alle erzeugten Notizen erfüllen
+  `@sergeylc/knowledge-vault-contract` (`validateWikiStandardFrontmatter`)
+  und sind für `@sergeylc/knowledge-vault-indexer` / MCP-Tools
+  (`vault_search`, `vault_get_note`, `vault_backlinks`) indexierbar
 
 ## Voraussetzungen
 
@@ -101,7 +102,7 @@ Die Standardkonfiguration befindet sich in `src/config.ts`:
 | `sourceRegistry` | `wiki/99_meta/sources_registry.json` | Pfad zur Source-Registry |
 | `model` | `llama3.2:latest` | Ollama-Modell für die LLM-Analyse |
 | `attachmentsDir` | `wiki/06_attachments` | Verzeichnis für extrahierte Bilder |
-| `wikiStandard.enabled` | `true` | WIKI_CONTENT_STANDARD-Frontmatter aktiv |
+| `wikiStandard.enabled` | `true` | Wiki-standard frontmatter via `@sergeylc/knowledge-vault-contract` |
 | `wikiStandard.defaultOwner` | `unassigned` | Owner-Kürzel für alle Notizen |
 | `wikiStandard.defaultDomain` | `general` | Fallback-Domain |
 | `wikiStandard.blockTypeMapping` | `{ epub: book, pdf: book, … }` | SourceFormat → WikiNoteType |
@@ -227,16 +228,16 @@ pnpm test
 pnpm test:watch
 ```
 
-## Kompatibilität mit wiki-llm-obsidian
+## Kompatibilität mit knowledge-vault
 
-ebook-ingest erzeugt WIKI_CONTENT_STANDARD.md-konforme Frontmatter-Blöcke,
-die vom `packages/wiki-indexer` fehlerfrei indexiert werden und über MCP-Tools
-(`wiki_search`, `wiki_get_note`, `wiki_backlinks`) für Copilot auffindbar sind.
+ebook-ingest erzeugt Frontmatter, das
+`@sergeylc/knowledge-vault-contract` (`validateWikiStandardFrontmatter`)
+erfüllt und von `@sergeylc/knowledge-vault-indexer` / MCP-Tools
+(`vault_search`, `vault_get_note`, `vault_backlinks`) indexiert wird.
 
-**Hinweis:** Für `html`/`url`-Quellen gibt es im `WIKI_CONTENT_STANDARD.md`-Enum
+**Hinweis:** Für `html`/`url`-Quellen gibt es im `WikiNoteType`-Enum
 noch keinen ideal passenden Wert — ebook-ingest nutzt `pattern` als
-konfigurierbaren Platzhalter. Eine Enum-Erweiterung um `article`/`note`
-liegt als Entscheidung beim `wiki-llm-obsidian`-Projekt.
+konfigurierbaren Platzhalter.
 
 ## Projektstruktur
 
@@ -246,7 +247,7 @@ src/
 ├── config.ts                # Konfiguration + Auto-Discovery + wikiStandard
 ├── date-utils.ts            # ISO-8601 → YYYY-MM-DD Utilities
 ├── source-slug.ts           # kebab-case Namens-Normalisierung
-├── frontmatter-validator.ts # WIKI_CONTENT_STANDARD.md Validator
+├── frontmatter-validator.ts # Thin wrapper around @sergeylc/knowledge-vault-contract
 ├── concept-normalizer.ts    # Normalisiert Konzeptnamen für Dateinamen
 ├── concept-merge-engine.ts  # Duplikaterkennung & Merging (P1)
 ├── epub-extractor.ts        # EPUB → Text
