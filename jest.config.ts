@@ -5,8 +5,12 @@ const config: Config = {
   testEnvironment: 'node',
   extensionsToTreatAsEsm: ['.ts'],
   transform: {
-    '^.+\\.ts$': ['ts-jest', { useESM: true, tsconfig: 'tsconfig.test.json' }],
+    '^.+\\.tsx?$': ['ts-jest', { useESM: true, tsconfig: 'tsconfig.test.json' }],
+    '^.+\\.jsx?$': ['ts-jest', { useESM: true, tsconfig: 'tsconfig.test.json' }],
   },
+  transformIgnorePatterns: [
+    '/node_modules/(?!(?:\\.pnpm/)?@sergeylc\\+knowledge-vault-contract(?:@[^/]+)?(?:/.*)?/node_modules/@sergeylc/knowledge-vault-contract/)',
+  ],
   testPathIgnorePatterns: ['/dist/'],
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
