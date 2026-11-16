@@ -9,7 +9,9 @@
 > `vault_backlinks`) auffindbar macht.
 >
 > **Status (follow-up):** Validation is owned by
-> `@sergeylc/knowledge-vault-contract@0.2.0`. `FrontmatterValidator` is a thin
+> `@sergeylc/knowledge-vault-contract@0.2.1` (git dependency on
+> `SergeyLC/knowledge-vault-mcp` package path — `prepare` builds `dist/`;
+> avoids GitHub Packages `read:packages` ACL). `FrontmatterValidator` is a thin
 > wrapper; do not reintroduce a local copy of the shared rules.
 
 ---

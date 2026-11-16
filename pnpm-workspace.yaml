@@ -1,4 +1,5 @@
 allowBuilds:
+  "@sergeylc/knowledge-vault-contract": true
   esbuild: true
   onnxruntime-node: true
   protobufjs: true
@@ -8,6 +9,7 @@ allowBuilds:
 ignoredBuiltDependencies: []
 
 onlyBuiltDependencies:
+  - "@sergeylc/knowledge-vault-contract"
   - onnxruntime-node
   - protobufjs
   - sharp
