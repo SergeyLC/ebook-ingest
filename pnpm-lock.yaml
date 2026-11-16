@@ -15,8 +15,8 @@ importers:
         specifier: ^0.1.9
         version: 0.1.9(@types/node@20.19.43)
       '@sergeylc/knowledge-vault-contract':
-        specifier: 0.2.0
-        version: 0.2.0
+        specifier: github:SergeyLC/knowledge-vault-mcp#b74af5109a845b2b06332043e921cfbf2c6c5940&path:packages/knowledge-vault-contract
+        version: git+https://git@github.com:SergeyLC/knowledge-vault-mcp.git#b74af5109a845b2b06332043e921cfbf2c6c5940&path:packages/knowledge-vault-contract
       cheerio:
         specifier: ^1.0.0
         version: 1.2.0
@@ -776,9 +776,9 @@ packages:
   '@protobufjs/utf8@1.1.2':
     resolution: {integrity: sha512-b1UQwcEZ4yCnMCD8DAL1VlbvBJE9/IX4FTIp7BG1xYpf29SLazLSrqUkj4w7Y5y7cCVP6E5tcqqcI0xemPkHug==}
 
-  '@sergeylc/knowledge-vault-contract@0.2.0':
-    resolution: {integrity: sha512-4M/tTiQ+DJoTXTGe7zEgaVCJg+R6ZkARuPIkKpywmHRxzYcd/aE4f/bSiV1PxCS9CZvHpWuP0QpDfEEccSgBsw==}
-    version: 0.2.0
+  '@sergeylc/knowledge-vault-contract@git+https://git@github.com:SergeyLC/knowledge-vault-mcp.git#b74af5109a845b2b06332043e921cfbf2c6c5940&path:packages/knowledge-vault-contract':
+    resolution: {commit: b74af5109a845b2b06332043e921cfbf2c6c5940, path: packages/knowledge-vault-contract, repo: git@github.com:SergeyLC/knowledge-vault-mcp.git, type: git}
+    version: 0.2.1
     engines: {node: '>=22'}
 
   '@sinclair/typebox@0.27.10':
@@ -3167,7 +3167,9 @@ snapshots:
 
   '@protobufjs/utf8@1.1.2': {}
 
-  '@sergeylc/knowledge-vault-contract@0.2.0': {}
+  '@sergeylc/knowledge-vault-contract@git+https://git@github.com:SergeyLC/knowledge-vault-mcp.git#b74af5109a845b2b06332043e921cfbf2c6c5940&path:packages/knowledge-vault-contract':
+    dependencies:
+      typescript: 5.9.3
 
   '@sinclair/typebox@0.27.10': {}
 

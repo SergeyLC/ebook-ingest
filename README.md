@@ -81,6 +81,7 @@ git clone <repository-url>
 cd ebook-ingest
 
 # Abhängigkeiten installieren
+# (contract kommt per git aus SergeyLC/knowledge-vault-mcp — kein NODE_AUTH_TOKEN nötig)
 pnpm install
 
 # Projekt bauen
