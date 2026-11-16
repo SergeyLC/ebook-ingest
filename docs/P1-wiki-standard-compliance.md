@@ -10,9 +10,10 @@
 >
 > **Status (follow-up):** Validation is owned by
 > `@sergeylc/knowledge-vault-contract@0.2.1` (git dependency on
-> `SergeyLC/knowledge-vault-mcp` package path — `prepare` builds `dist/`;
-> avoids GitHub Packages `read:packages` ACL). `FrontmatterValidator` is a thin
-> wrapper; do not reintroduce a local copy of the shared rules.
+> `SergeyLC/knowledge-vault-mcp#v0.2.1` package path — `prepare` builds
+> `dist/`; avoids GitHub Packages `read:packages` ACL).
+> `FrontmatterValidator` is a thin wrapper; do not reintroduce a local copy
+> of the shared rules.
 
 ---
 
